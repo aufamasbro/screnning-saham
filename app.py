@@ -5,12 +5,19 @@ import mplfinance as auf
 
 st.set_page_config(page_title="Screener Saham AUF", layout="centered")
 
-st.subheader(" SCREENER SAHAM GAIN 7% - 15%")
-st.caption("by AUF")
+st.markdown(
+    """
+    <div style='text-align: center; padding: 12px; background-color: #1e222d; border-radius: 10px; margin-bottom: 15px;'>
+        <h3 style='color: #4CAF50; margin:0;'>🚀 SCREENER SAHAM</h3>
+        <p style='color: #cccccc; margin:2px 0 0 0; font-size: 14px;'>Gain 7% - 15% • <b>by AUF</b></p>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
 
 kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
 
-if st.button("Analisa"):
+if st.button("🔍 Analisa Saham", use_container_width=True):
     data = yf.download(kode_saham, start="2024-01-01")
 
     if data.empty:

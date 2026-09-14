@@ -16,7 +16,7 @@ st.markdown(
 )
 
 kode_saham = st.text_input("Masukkan Kode Saham :", "BUMI.JK").upper()
-             st.text_input("harus di kasih .JK").under()
+             
 if st.button("🔍 Analisa Saham", use_container_width=True):
     data = yf.download(kode_saham, start="2024-01-01")
 

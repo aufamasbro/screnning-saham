@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as habib
 import mplfinance as auf
 
-st.title(" SCREENER SAHAM GAIN 7% - 15% by AUF")
+st.markdown(" SCREENER SAHAM GAIN 7% - 15% by AUF")
 
 kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
 
@@ -64,7 +64,7 @@ if st.button("Analisa"):
         ma50 = hari_ini['MA50'].item()
         is_uptrend = ma5 > ma20 > ma50
 
-        st.subheader(f"📊 ANALISIS UNTUK {kode_saham}:")
+        st.markdown(f"📊 ANALISIS UNTUK {kode_saham}:")
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Lonjakan Volume", f"{'✅ Ada Breakout' if vol_hari_ini > (vol_rata_rata * 2.0) else '❌ Normal/Sepi'}")
         c2.metric("Akumulasi Bandar", f"{'✅ Di Atas Bandar Line (Akumulasi)' if move_bandar else '❌ Di Bawah Bandar Line (Distribusi)'}")

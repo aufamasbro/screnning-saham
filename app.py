@@ -15,7 +15,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
+kode_saham = st.text_input("Masukkan Kode Saham:", "jangan lupa di kasih .JK ya..!!").upper()
 
 if st.button("🔍 Analisa Saham", use_container_width=True):
     data = yf.download(kode_saham, start="2024-01-01")

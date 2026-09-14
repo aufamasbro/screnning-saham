@@ -5,9 +5,9 @@ import mplfinance as auf
 
 st.title(" SCREENER SAHAM GAIN 7% - 15% by AUF")
 
-kode_saham = st.sidebar.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
+kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
 
-if st.sidebar.button("Analisa"):
+if st.button("Analisa"):
     data = yf.download(kode_saham, start="2024-01-01")
 
     if data.empty:

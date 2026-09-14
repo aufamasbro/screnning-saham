@@ -71,11 +71,15 @@ if st.button("Analisa"):
         col1, col2 = st.columns(2)
         with col1:
             st.metric("Lonjakan Volume", f"{'✅ Ada Breakout' if vol_hari_ini > (vol_rata_rata * 2.0) else '❌ Normal/Sepi'}")
-            st.metric("Akumulasi Bandar", f"{'✅ Di Atas Bandar Line (Akumulasi)' if move_bandar else '❌ Di Bawah Bandar Line (Distribusi)'}")
+            st.metric("Akumulasi ", f"{'✅ (Akumulasi)' if move_bandar else '❌ Di Bawah Bandar Line (Distribusi)'}")
         with col2:
             st.metric("TRIPLE MA CROSSING", f"{'✅ Uptrend' if is_uptrend else '❌ Downtrend'}")
-            st.metric("ANGKA MA", f"MA5: {ma5:.2f} | MA20: {ma20:.2f} | MA50: {ma50:.2f}")
-
+            
+        with st.expander("DETAIL Angka MA"):
+            st.write(f"- **MA5**: {ma5:.2f}")
+            st.write(f"- **MA20**: {ma20:.2f}")
+            st.write(f"- **MA50**: {ma50:.2f}")
+            
         st.markdown("---")
         if is_uptrend and vol_hari_ini > (vol_rata_rata * 2.0) and move_bandar:
             st.success("SINYAL: VERY BUY 7% - 15%")
@@ -85,3 +89,4 @@ if st.button("Analisa"):
             st.info("SINYAL: BUY 1% - 5%")
         else:
             st.error("SINYAL: SELL or DON'T ENTRY")
+    

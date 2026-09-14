@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as habib
 import mplfinance as auf
 
-st.markdown(" SCREENER SAHAM GAIN 7% - 15% by AUF")
+st.subheader(" SCREENER SAHAM GAIN 7% - 15% by AUF")
 
 kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
 

@@ -3,7 +3,10 @@ import yfinance as yf
 import pandas as habib
 import mplfinance as auf
 
-st.subheader(" SCREENER SAHAM GAIN 7% - 15% by AUF")
+st.set_page_config(page_title="Screener Saham AUF", layout="centered")
+
+st.subheader(" SCREENER SAHAM GAIN 7% - 15%")
+st.caption("by AUF")
 
 kode_saham = st.text_input("Masukkan Kode Saham:", "BRMS.JK").upper()
 

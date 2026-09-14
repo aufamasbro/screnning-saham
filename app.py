@@ -65,11 +65,13 @@ if st.button("Analisa"):
         is_uptrend = ma5 > ma20 > ma50
 
         st.markdown(f"📊 ANALISIS UNTUK {kode_saham}:")
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Lonjakan Volume", f"{'✅ Ada Breakout' if vol_hari_ini > (vol_rata_rata * 2.0) else '❌ Normal/Sepi'}")
-        c2.metric("Akumulasi Bandar", f"{'✅ Di Atas Bandar Line (Akumulasi)' if move_bandar else '❌ Di Bawah Bandar Line (Distribusi)'}")
-        c3.metric("TRIPLE MA CROSSING", f"{'✅ Uptrend' if is_uptrend else '❌ Downtrend'}")
-        c4.metric("ANGKA MA", f"MA5: {ma5:.2f} | MA20: {ma20:.2f} | MA50: {ma50:.2f}")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Lonjakan Volume", f"{'✅ Ada Breakout' if vol_hari_ini > (vol_rata_rata * 2.0) else '❌ Normal/Sepi'}")
+            st.metric("Akumulasi Bandar", f"{'✅ Di Atas Bandar Line (Akumulasi)' if move_bandar else '❌ Di Bawah Bandar Line (Distribusi)'}")
+        with col2:
+            st.metric("TRIPLE MA CROSSING", f"{'✅ Uptrend' if is_uptrend else '❌ Downtrend'}")
+            st.metric("ANGKA MA", f"MA5: {ma5:.2f} | MA20: {ma20:.2f} | MA50: {ma50:.2f}")
 
         st.markdown("---")
         if is_uptrend and vol_hari_ini > (vol_rata_rata * 2.0) and move_bandar:
